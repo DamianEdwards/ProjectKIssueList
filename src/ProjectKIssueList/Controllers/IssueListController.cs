@@ -153,5 +153,52 @@ namespace ProjectKIssueList.Controllers
                 PullRequests = allPullRequests,
             });
         }
+
+        [Route("dashboard")]
+        public IActionResult Dashboard()
+        {
+            var model = new DashboardViewModel
+            {
+                Name = User.Identity.Name,
+                FailingBuilds = new List<Build>
+                {
+                    new Build
+                    {
+                        Id = 15484,
+                        Name = "Localization",
+                        Changes = new List<Change>
+                        {
+                            new Change
+                            {
+
+                            }
+                        },
+                        Status = BuildStatus.Failed,
+                        Started = DateTimeOffset.Parse("09/04/2015 11:34:22"),
+                        Ended = DateTimeOffset.Parse("09/04/2015 11:34:01"),
+                        ErrorMessage = "Process exited with code 1"
+                    },
+                    new Build
+                    {
+                        Id = 23343,
+                        Name = "UniverseTest",
+                        Status = BuildStatus.Failed,
+                        Started = DateTimeOffset.Parse("09/04/2015 09:54:09"),
+                        Ended = DateTimeOffset.Parse("09/04/2015 10:44:38"),
+                        ErrorMessage = "Tests failed",
+                        TestsFailed = 7,
+                        TestsPassed = 15004,
+                        Assigneee = "PranavK"
+                    }
+                },
+                PassingBuilds = new List<Build>
+                {
+
+                },
+
+            };
+
+            return View(model);
+        }
     }
 }

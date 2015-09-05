@@ -1,0 +1,50 @@
+﻿@model DashboardViewModel
+
+@{
+    Layout = "";
+    ViewData["Title"] = "Dashboard";
+    ViewData["Name"] = Model.Name;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProjectKIssueList</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css"
+              asp-fallback-test-class="invisible" asp-fallback-test-property="visibility" asp-fallback-test-value="hidden" />
+        <link rel="stylesheet" href="~/css/site.css" asp-file-version="true" />
+    </environment>
+</head>
+<body class="dashboard">
+    <div class="container-fluid body-content">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="failed-builds">
+
+                </div>
+                <div class="passing-builds">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2015 - ProjectKIssueList</p>
+        </footer>
+    </div>
+</body>
+</html>
